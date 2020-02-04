@@ -4,15 +4,73 @@ using UnityEngine;
 
 public class Traveler : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Appearance appearance;
+    public bool ticketIsValid = true;
+
+    [SerializeField]
+    private GameObject optionMenu;
     void Start()
     {
-        
+        HideMenu();
+        appearance = new Appearance();
+        appearance.Randomnize();
+        ApplyAppearance();
     }
 
-    // Update is called once per frame
+    public void ShowMenu()
+    {
+        optionMenu.SetActive(true);
+    }
+    public void HideMenu()
+    {
+        optionMenu.SetActive(false);
+    }
+    public void ApplyAppearance()
+    {
+
+    }
+
     void Update()
     {
         
     }
+}
+
+public class Appearance {
+    public Clothes clothes;
+    public HairColor hairColor;
+    public HairStyle hairStyle;
+
+    public void Randomnize()
+    {
+        clothes = GetRandomEnum<Clothes>();
+        hairColor = GetRandomEnum<HairColor>();
+        hairStyle = GetRandomEnum<HairStyle>();
+    }
+    static T GetRandomEnum<T>()
+    {
+        System.Array A = System.Enum.GetValues(typeof(T));
+        T V = (T)A.GetValue(UnityEngine.Random.Range(0, A.Length));
+        return V;
+    }
+}
+
+
+public enum Clothes
+{
+    red,
+    black,
+    blue
+}
+public enum HairColor
+{
+    black,
+    brown,
+    blond
+} 
+public enum HairStyle
+{
+    bald,
+    shortHair,
+    longHair
 }

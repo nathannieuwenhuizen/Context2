@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Metro : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private int amountOfTickets = 0;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
