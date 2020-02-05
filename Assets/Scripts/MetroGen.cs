@@ -4,22 +4,87 @@ using UnityEngine;
 
 public class MetroGen : MonoBehaviour {
 
+
+    [Header("metro info")]
     [SerializeField] float pieceDistance = 3;
     [SerializeField] GameObject[] piecePrefabs;
     [SerializeField] GameObject gatePiecePrefab;
     [SerializeField] GameObject doorPiecePrefab;
     [SerializeField] int gateInterval = 3;
+    [SerializeField] GameObject endTriggerprefab;
     public float pieceCount = 2;
 
-    private void Start() {
-        GameObject.Instantiate(doorPiecePrefab, transform.position + transform.forward * -1 * pieceDistance, Quaternion.identity, transform);
-        GameObject.Instantiate(doorPiecePrefab, transform.position + transform.forward * pieceCount * pieceDistance, Quaternion.identity, transform);
+    [Header("sit places info")]
+    [SerializeField] GameObject gatePieceSitpointsPrefab;
+    [SerializeField] GameObject pieceSitpointsPrefab;
+    private List<Transform> sitPoints;
 
-        for (int i = 0; i < pieceCount; i++) {
-            if (i % 3 == 0) GameObject.Instantiate(gatePiecePrefab, transform.position + transform.forward * i * pieceDistance, Quaternion.identity, transform);
-            else GameObject.Instantiate(piecePrefabs[Random.Range(0,piecePrefabs.Length)],transform.position + transform.forward * i * pieceDistance,Quaternion.identity,transform);
+    [Header("traveler info")]
+    [SerializeField] int amountOfTravelers = 10;
+    [SerializeField] GameObject travelerPrefab;
+    private List<Traveler> travelers;
+
+    private void Start() {
+        GenerateMetro();
+        GenerateTravelers();
+
+    }
+
+    public void GenerateMetro()
+    {
+        sitPoints = new List<Transform>();
+
+        //back
+        GameObject.Instantiate(doorPiecePrefab, transform.position + transform.forward * -1 * pieceDistance, Quaternion.identity, transform);
+
+        //between parts
+        for (int i = 0; i < pieceCount; i++)
+        {
+            if (i % 3 == 0)
+            {
+                GameObject.Instantiate(gatePiecePrefab, transform.position + transform.forward * i * pieceDistance, Quaternion.identity, transform);
+                GameObject parentSitpoint =  GameObject.Instantiate(gatePieceSitpointsPrefab, transform.position + transform.forward * i * pieceDistance, Quaternion.identity, transform);
+                foreach(Transform sitpoint in parentSitpoint.GetComponentsInChildren<Transform>())
+                {
+                    sitPoints.Add(sitpoint);
+                }
+                sitPoints.Remove(parentSitpoint.transform);
+
+
+            }
+            else
+            {
+                GameObject.Instantiate(piecePrefabs[Random.Range(0, piecePrefabs.Length)], transform.position + transform.forward * i * pieceDistance, Quaternion.identity, transform);
+                GameObject parentSitpoint = GameObject.Instantiate(pieceSitpointsPrefab, transform.position + transform.forward * i * pieceDistance, Quaternion.identity, transform);
+                foreach (Transform sitpoint in parentSitpoint.GetComponentsInChildren<Transform>())
+                {
+                    sitPoints.Add(sitpoint);
+                }
+                sitPoints.Remove(parentSitpoint.transform);
+            }
         }
 
-        //place front and back
+        //front
+        GameObject.Instantiate(doorPiecePrefab, transform.position + transform.forward * pieceCount * pieceDistance, Quaternion.identity, transform);
+        GameObject.Instantiate(endTriggerprefab, transform.position + transform.forward * pieceCount * pieceDistance, Quaternion.identity, transform);
+    }
+
+    public void GenerateTravelers()
+    {
+        GameObject travelerParent = new GameObject("travelers");
+
+        travelers = new List<Traveler>();
+        for (int i = 0; i < amountOfTravelers; i++)
+        {
+
+            int randomIndex = Random.Range(0, sitPoints.Count);
+            Vector3 spawnPos = sitPoints[randomIndex].position;
+            sitPoints.Remove(sitPoints[randomIndex]);
+
+            Traveler traveler = GameObject.Instantiate(
+                travelerPrefab, spawnPos, Quaternion.identity, travelerParent.transform)
+                .GetComponent<Traveler>();
+            travelers.Add(traveler);
+        }
     }
 }
