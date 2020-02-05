@@ -1,17 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Traveler : MonoBehaviour
 {
     Appearance appearance;
     public bool ticketIsValid = true;
 
+    private bool recievedFine = false;
+    private bool ticketChecked = false;
+
     [SerializeField]
     private GameObject optionMenu;
+
+    [Header("UI sprites")]
+    [SerializeField]
+    private Sprite correct;
+    [SerializeField]
+    private Sprite incorrect;
+    [SerializeField]
+    private Image statusImage;
+    [SerializeField]
+    private GameObject statusObject;
+
     void Start()
     {
         HideMenu();
+        statusObject.SetActive(false);
+
         appearance = new Appearance();
         appearance.Randomnize();
         ApplyAppearance();
@@ -28,6 +45,28 @@ public class Traveler : MonoBehaviour
     public void ApplyAppearance()
     {
 
+    }
+
+    public void CheckTicket()
+    {
+        if (ticketChecked) { return; }
+
+        Debug.Log("ticket checked");
+
+        ticketChecked = true;
+        statusObject.SetActive(true);
+        statusImage.sprite = ticketIsValid ? correct : incorrect;
+    }
+
+    public void RecieveFine()
+    {
+        if (recievedFine) { return; }
+
+        Debug.Log("recieved Fine");
+
+        recievedFine = true;
+        Conductur.instance.GiveFine(appearance);
+        HideMenu();
     }
 
     void Update()

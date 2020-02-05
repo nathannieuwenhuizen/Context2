@@ -5,14 +5,18 @@ using UnityEngine.EventSystems;
 
 public class Conductur : MonoBehaviour
 {
+    //fine data
+    public List<Appearance> ticketAppearances;
+
+    public static Conductur instance;
 
     [SerializeField]
-    private float walkSpeed; // 1.0 1.2
+    private float walkSpeed;
 
     [SerializeField]
     private float rotateSpeed;
 
-    private Vector3 direction; // x, y, z
+    private Vector3 direction;
     private Rigidbody rb;
 
     [SerializeField]
@@ -25,10 +29,14 @@ public class Conductur : MonoBehaviour
 
     void Start()
     {
+        ticketAppearances = new List<Appearance>();
         rb = GetComponent<Rigidbody>();
+
+        instance = this;
 
         mousePos = Input.mousePosition;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
     }
 
     void Update()
@@ -64,6 +72,12 @@ public class Conductur : MonoBehaviour
     {
         return new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
     }
+
+    public void GiveFine(Appearance appearance)
+    {
+        ticketAppearances.Add(appearance);
+    }
+
     private void Move()
     {
         //walk
@@ -75,32 +89,26 @@ public class Conductur : MonoBehaviour
         transform.Translate(direction * walkSpeed);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<End>())
+        {
+            other.gameObject.GetComponent<End>().ShowExitButton();
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<End>())
+        {
+            other.gameObject.GetComponent<End>().HideExitButton();
+        }
+    }
+
     private void Rotate()
     {
         //rotate
         transform.Rotate(new Vector3(0, getMouseDelta().x * rotateSpeed, 0));
         cameraTransform.Rotate(new Vector3(-getMouseDelta().y * rotateSpeed, 0, 0));
 
-    }
-}
-
- 
-public class CustomInputModule : StandaloneInputModule
-{
-    // Current cursor lock state (memory cache)
-    private CursorLockMode _currentLockState = CursorLockMode.None;
-
-    /// <summary>
-    /// Process the current tick for the module.
-    /// </summary>
-    public override void Process()
-    {
-        _currentLockState = Cursor.lockState;
-
-        Cursor.lockState = CursorLockMode.None;
-
-        base.Process();
-
-        Cursor.lockState = _currentLockState;
     }
 }

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 0.1
-  rotateSpeed: 1
+  rotateSpeed: 2
   cameraTransform: {fileID: 477511278411514951}
 --- !u!54 &477511278310648020
 Rigidbody:
@@ -120,7 +120,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
