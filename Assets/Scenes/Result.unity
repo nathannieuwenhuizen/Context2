@@ -780,7 +780,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Duration control
+  m_Text: 'Time left
 
     Amount of fines
 
@@ -911,6 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2c68e9cea22fb4197c9c284261a32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataText: {fileID: 918543554}
 --- !u!1 &1898088483
 GameObject:
   m_ObjectHideFlags: 0

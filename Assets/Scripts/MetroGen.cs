@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MetroGen : MonoBehaviour {
 
+    public static MetroGen instance;
 
     [Header("metro info")]
     [SerializeField] float pieceDistance = 3;
@@ -22,9 +23,11 @@ public class MetroGen : MonoBehaviour {
     [Header("traveler info")]
     [SerializeField] int amountOfTravelers = 10;
     [SerializeField] GameObject travelerPrefab;
-    private List<Traveler> travelers;
+    public List<Traveler> travelers;
 
     private void Start() {
+        instance = this;
+
         GenerateMetro();
         GenerateTravelers();
 
@@ -49,8 +52,6 @@ public class MetroGen : MonoBehaviour {
                     sitPoints.Add(sitpoint);
                 }
                 sitPoints.Remove(parentSitpoint.transform);
-
-
             }
             else
             {
@@ -85,6 +86,11 @@ public class MetroGen : MonoBehaviour {
                 travelerPrefab, spawnPos, Quaternion.identity, travelerParent.transform)
                 .GetComponent<Traveler>();
             travelers.Add(traveler);
+
+            if (Random.Range(0, 100) > 50)
+            {
+                traveler.TicketIsValid = false;
+            }
         }
     }
 }

@@ -6,13 +6,18 @@ using UnityEngine.UI;
 public class Traveler : MonoBehaviour
 {
     Appearance appearance;
-    public bool ticketIsValid = true;
+    private bool ticketIsValid = true;
 
-    private bool recievedFine = false;
+    private bool fined = false;
     private bool ticketChecked = false;
 
     [SerializeField]
     private GameObject optionMenu;
+
+    [SerializeField]
+    private Transform pivotMenu;
+    [SerializeField]
+    private float rotationDamping = 10;
 
     [Header("UI sprites")]
     [SerializeField]
@@ -24,6 +29,7 @@ public class Traveler : MonoBehaviour
     [SerializeField]
     private GameObject statusObject;
 
+    private bool menuIsShown;
     void Start()
     {
         HideMenu();
@@ -37,10 +43,12 @@ public class Traveler : MonoBehaviour
     public void ShowMenu()
     {
         optionMenu.SetActive(true);
+        menuIsShown = true;
     }
     public void HideMenu()
     {
         optionMenu.SetActive(false);
+        menuIsShown = false;
     }
     public void ApplyAppearance()
     {
@@ -51,7 +59,6 @@ public class Traveler : MonoBehaviour
     {
         if (ticketChecked) { return; }
 
-        Debug.Log("ticket checked");
 
         ticketChecked = true;
         statusObject.SetActive(true);
@@ -60,18 +67,39 @@ public class Traveler : MonoBehaviour
 
     public void RecieveFine()
     {
-        if (recievedFine) { return; }
+        if (fined) { return; }
 
-        Debug.Log("recieved Fine");
 
-        recievedFine = true;
-        Conductur.instance.GiveFine(appearance);
+        fined = true;
+        Conductur.instance.GiveFine(this);
         HideMenu();
+    }
+    public bool TicketIsValid
+    {
+        get { return ticketIsValid; }
+        set { ticketIsValid = value; }
+    }
+    public bool RecievedFine
+    {
+        get { return fined; }
+        set { fined = value; }
+    }
+
+    public bool TicketChecked
+    {
+        get { return ticketChecked; }
+        set { ticketChecked = value; }
     }
 
     void Update()
     {
-        
+        if (menuIsShown)
+        {
+            var lookPos = transform.position - Conductur.instance.transform.position;
+            lookPos.y = 0;
+            var rotation = Quaternion.LookRotation(lookPos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationDamping);
+        }
     }
 }
 

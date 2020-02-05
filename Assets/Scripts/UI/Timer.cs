@@ -28,21 +28,23 @@ public class Timer : MonoBehaviour
         if (!isRunning) { return; }
         timePassed += Time.deltaTime;
 
-        //Debug.Log("Time passed: " + timePassed);
-
         slider.value = timePassed;
 
         if (timePassed > durationInSec)
         {
-            Debug.Log("Time has passed!");
             OnTimerUp.Invoke();
             StartCoroutine(TimesUp());
             isRunning = false;
         }
     }
+
+    public float timeLeft
+    {
+        get { return (durationInSec - timePassed); }
+    }
     IEnumerator TimesUp()
     {
         yield return new WaitForSeconds(2f);
-        GetComponent<SceneLoader>().LoadSceneByBuildIndex(1);
+        GameManager.instance.End();
     }
 }

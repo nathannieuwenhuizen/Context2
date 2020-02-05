@@ -272,9 +272,10 @@ MonoBehaviour:
     type: 3}
   pieceSitpointsPrefab: {fileID: 5161902960098026605, guid: fed6da753a9069f4c87c01a8f3ec2612,
     type: 3}
-  amountOfTravelers: 10
+  amountOfTravelers: 2
   travelerPrefab: {fileID: 6794346089465916705, guid: b74b9c4e72645d845a3233a7b407cd03,
     type: 3}
+  travelers: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +349,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3.372e-42, y: 1.02e-43, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 8.5e-43, y: 4.350729e-38, z: 8.5e-43, w: 4e-45}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -366,12 +367,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!20 &963194227 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 477511278411514944, guid: 15ee4d565bc2cb04a857752e0112a53e,
-    type: 3}
-  m_PrefabInstance: {fileID: 477511279060134195}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1047069021 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1678000734568425600, guid: f214805989ec7ed4b805fb3220128d29,
@@ -443,7 +438,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1119962368
 MonoBehaviour:
@@ -538,80 +533,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15ee4d565bc2cb04a857752e0112a53e, type: 3}
---- !u!1001 &6794346089719568953
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6794346089465916705, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_Name
-      value: Traveler
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794346089465916704, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794346089465916704, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794346089465916704, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 8.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794346089465916704, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794346089465916704, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794346089465916704, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794346089465916704, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794346089465916704, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794346089465916704, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794346089465916704, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794346089465916704, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4704848094141532851, guid: b74b9c4e72645d845a3233a7b407cd03,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 963194227}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b74b9c4e72645d845a3233a7b407cd03, type: 3}
 --- !u!1001 &7787365278568770332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -662,7 +583,7 @@ PrefabInstance:
     - target: {fileID: 7787365279432139666, guid: f214805989ec7ed4b805fb3220128d29,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7787365279432139666, guid: f214805989ec7ed4b805fb3220128d29,
         type: 3}
@@ -732,17 +653,17 @@ PrefabInstance:
     - target: {fileID: 5562747763127194825, guid: f214805989ec7ed4b805fb3220128d29,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8914790603644305861, guid: f214805989ec7ed4b805fb3220128d29,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7035843790141200056, guid: f214805989ec7ed4b805fb3220128d29,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 924012847319952480, guid: f214805989ec7ed4b805fb3220128d29,
         type: 3}
@@ -768,6 +689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: OnTimerUp.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6216366318952335309, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: durationInSec
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f214805989ec7ed4b805fb3220128d29, type: 3}

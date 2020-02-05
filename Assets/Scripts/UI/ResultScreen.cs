@@ -1,17 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResultScreen : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [Header("UI data text")]
+    [SerializeField]
+    private Text dataText;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
 
+        var minutes = Data.timeLeft / 60;
+        var seconds = Data.timeLeft % 60;
+
+        string timeLeft = string.Format("{0:00}:{1:00}", Mathf.Floor(minutes), seconds);
+
+        Cursor.lockState = CursorLockMode.None;
+        dataText.text =
+            timeLeft + " \n" +
+            Data.amountFined + "\n" +
+            Data.precentageChecked + "% \n" +
+            Data.amountWronglyFined + "\n" +
+            Data.amountIlligalMissed + "\n";
+          
     }
 
-    // Update is called once per frame
     void Update()
     {
         

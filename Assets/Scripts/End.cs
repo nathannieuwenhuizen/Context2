@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class End : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class End : MonoBehaviour
     public void Start()
     {
         HideExitButton();
+        exitButton.GetComponent<Button>().onClick.AddListener(GameManager.instance.End);
     }
     public void ShowExitButton()
     {

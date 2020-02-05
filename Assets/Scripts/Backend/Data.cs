@@ -4,5 +4,10 @@ using UnityEngine;
 
 public static class Data
 {
-    public static List<Appearance> finedAppearances = new List<Appearance>();
+    public static List<Traveler> finedAppearances = new List<Traveler>();
+    public static float timeLeft = 0;
+    public static float precentageChecked;
+    public static int amountFined;
+    public static int amountWronglyFined;
+    public static int amountIlligalMissed;
 }

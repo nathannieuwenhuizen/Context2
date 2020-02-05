@@ -6,61 +6,55 @@ using UnityEngine.EventSystems;
 public class Conductur : MonoBehaviour
 {
     //fine data
-    public List<Appearance> ticketAppearances;
+    public List<Traveler> finedTravelers;
 
     public static Conductur instance;
 
-    [SerializeField]
-    private float walkSpeed;
-
-    [SerializeField]
-    private float rotateSpeed;
-
-    private Vector3 direction;
     private Rigidbody rb;
 
     [SerializeField]
     private Transform cameraTransform;
 
-    private Vector3 mousePos;
-    private Vector3 mouseDelta;
-
     private Traveler selectedTraveler;
 
     void Start()
     {
-        ticketAppearances = new List<Appearance>();
+        finedTravelers = new List<Traveler>();
         rb = GetComponent<Rigidbody>();
 
         instance = this;
-
-        mousePos = Input.mousePosition;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
     }
 
     void Update()
     {
         CheckClickEvent();
-        Move();
-        Rotate();
     }
     private void CheckClickEvent()
     {
         Vector3 fwd = cameraTransform.transform.TransformDirection(Vector3.forward);
-        Debug.DrawRay(cameraTransform.transform.position, fwd * 50, Color.green);
         if (Input.GetButtonDown("Fire1"))
         {
+            //check object hit
             RaycastHit objectHit;
             if (Physics.Raycast(cameraTransform.transform.position, fwd, out objectHit, 50))
             {
-                //do something if hit object ie
+                //check parent of box coll
                 if (objectHit.transform.parent != null)
                 {
+                    //check traveler
                     if (objectHit.transform.parent.GetComponent<Traveler>())
                     {
-                        selectedTraveler = objectHit.transform.parent.GetComponent<Traveler>();
-                        selectedTraveler.ShowMenu();
+                        SelectedTraveler = objectHit.transform.parent.GetComponent<Traveler>();
+                        SelectedTraveler.ShowMenu();
+
+                    }
+                    //check canvas coll
+                    else if (objectHit.transform.parent.parent != null)
+                    {
+                        if (selectedTraveler != objectHit.transform.parent.parent.GetComponent<Traveler>())
+                        {
+                            NoTravelerSelected();
+                        }
                     } else
                     {
                         NoTravelerSelected();
@@ -83,25 +77,22 @@ public class Conductur : MonoBehaviour
             selectedTraveler.HideMenu();
         }
     }
-    private Vector2 getMouseDelta()
-    {
-        return new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-    }
 
-    public void GiveFine(Appearance appearance)
+    public Traveler SelectedTraveler
     {
-        ticketAppearances.Add(appearance);
+        get { return selectedTraveler; }
+        set
+        {
+            if (selectedTraveler != null)
+            {
+                selectedTraveler.HideMenu();
+            }
+            selectedTraveler = value;
+        }
     }
-
-    private void Move()
+    public void GiveFine(Traveler appearance)
     {
-        //walk
-        direction = new Vector3(
-            Input.GetAxis("Horizontal"),
-            0,
-            Input.GetAxis("Vertical")
-        );
-        transform.Translate(direction * walkSpeed);
+        finedTravelers.Add(appearance);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -119,11 +110,9 @@ public class Conductur : MonoBehaviour
         }
     }
 
-    private void Rotate()
-    {
-        //rotate
-        transform.Rotate(new Vector3(0, getMouseDelta().x * rotateSpeed, 0));
-        cameraTransform.Rotate(new Vector3(-getMouseDelta().y * rotateSpeed, 0, 0));
 
+    public void CalculateResult()
+    {
+        //MetroGen.instance.travelers.Count
     }
 }
