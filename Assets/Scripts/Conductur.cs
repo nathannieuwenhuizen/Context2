@@ -55,18 +55,33 @@ public class Conductur : MonoBehaviour
             if (Physics.Raycast(cameraTransform.transform.position, fwd, out objectHit, 50))
             {
                 //do something if hit object ie
-                if (objectHit.transform.parent.GetComponent<Traveler>())
+                if (objectHit.transform.parent != null)
                 {
-                    selectedTraveler = objectHit.transform.parent.GetComponent<Traveler>();
-                    selectedTraveler.ShowMenu();
+                    if (objectHit.transform.parent.GetComponent<Traveler>())
+                    {
+                        selectedTraveler = objectHit.transform.parent.GetComponent<Traveler>();
+                        selectedTraveler.ShowMenu();
+                    } else
+                    {
+                        NoTravelerSelected();
+                    }
+                } else
+                {
+                    NoTravelerSelected();
                 }
-
-            } else if (selectedTraveler != null)
+            } else
             {
-                selectedTraveler.HideMenu();
+                NoTravelerSelected();
             }
         }
 
+    }
+    private void NoTravelerSelected()
+    {
+        if (selectedTraveler != null)
+        {
+            selectedTraveler.HideMenu();
+        }
     }
     private Vector2 getMouseDelta()
     {
