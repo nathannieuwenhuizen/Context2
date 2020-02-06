@@ -86,17 +86,24 @@ public class MetroGen : MonoBehaviour {
         int currentAmountPatterns = 0;
         for (int i = 0; i < amountOfTravelers; i++)
         {
-
+            if (sitPoints.Count < 2) { return; }
+            
             //position
-            int randomIndex = Random.Range(0, sitPoints.Count);
+            int randomIndex = Random.Range(0, sitPoints.Count - 1);
             Vector3 spawnPos = sitPoints[randomIndex].position;
             sitPoints.Remove(sitPoints[randomIndex]);
 
             //instantiation
             Traveler traveler = GameObject.Instantiate(
-                travelerPrefab, spawnPos, Quaternion.identity, travelerParent.transform)
+                travelerPrefab, spawnPos, sitPoints[randomIndex].rotation, travelerParent.transform)
                 .GetComponent<Traveler>();
             travelers.Add(traveler);
+
+            //TODO: hard coded! checks on x pos
+            if (traveler.transform.position.x < 0)
+            {
+                traveler.transform.Rotate(new Vector3(0, 180, 0));
+            }
 
             if (randomPattern)
             {
@@ -124,6 +131,7 @@ public class MetroGen : MonoBehaviour {
                     traveler.Appearance = new Appearance();
                     traveler.Appearance.Randomnize();
                     traveler.ApplyAppearance();
+
                     //if there are too many patterncolor travelers
                     if (traveler.Appearance.clothes == Data.patternIndex)
                     {

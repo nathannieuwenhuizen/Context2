@@ -22,7 +22,7 @@ public class Traveler : MonoBehaviour
 
     [Header("Appearance info")]
     [SerializeField]
-    private MeshRenderer meshRenderer;
+    private SkinnedMeshRenderer[] meshRenderers;
     
     [Header("UI sprites")]
     [SerializeField]
@@ -69,23 +69,22 @@ public class Traveler : MonoBehaviour
         switch (appearance.clothes)
         {
             case Clothes.black:
-                meshRenderer.material.color = new Color(0, 0, 0);
+                ShirtColor = new Color(0, 0, 0);
                 break;
             case Clothes.blue:
-                meshRenderer.material.color = new Color(0, 0, 1);
+                ShirtColor = new Color(0, 0, 1);
                 break;
             case Clothes.red:
-                meshRenderer.material.color = new Color(1, 0, 0);
+                ShirtColor = new Color(1, 0, 0);
                 break;
             case Clothes.green:
-                Debug.Log("Green");
-                meshRenderer.material.color = new Color(0, 1, 0);
+                ShirtColor = new Color(0, 1, 0);
                 break;
             case Clothes.yellow:
-                meshRenderer.material.color = new Color(0, 1, 1);
+                ShirtColor = new Color(0, 1, 1);
                 break;
             default:
-                meshRenderer.material.color = new Color(0, 0, 0);
+                ShirtColor = new Color(0, 0, 0);
                 break;
         }
     }
@@ -134,6 +133,26 @@ public class Traveler : MonoBehaviour
         get { return ticketChecked; }
         set { ticketChecked = value; }
     }
+    public Color ShirtColor
+    {
+        get
+        {
+            if (meshRenderers.Length > 0)
+            {
+                return meshRenderers[0].material.color;
+            } else
+            {
+                return new Color();
+            }
+        }
+        set
+        {
+            for (int i = 0; i < meshRenderers.Length; i++)
+            {
+                meshRenderers[i].material.color = value;
+            }
+        }
+    }
 
     void Update()
     {
@@ -142,7 +161,7 @@ public class Traveler : MonoBehaviour
             var lookPos = transform.position - Conductur.instance.transform.position;
             lookPos.y = 0;
             var rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationDamping);
+            pivotMenu.rotation = Quaternion.Slerp(pivotMenu.rotation, rotation, Time.deltaTime * rotationDamping);
         }
     }
 
