@@ -528,6 +528,7 @@ MonoBehaviour:
   amountOfTravelers: 10
   travelerPrefab: {fileID: 6794346089465916705, guid: b74b9c4e72645d845a3233a7b407cd03,
     type: 3}
+  travelers: []
 --- !u!4 &963732549
 Transform:
   m_ObjectHideFlags: 0
@@ -647,8 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ab8a0f95d3943458c6ea1593787a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 0.1
-  rotateSpeed: 2
+  finedTravelers: []
   cameraTransform: {fileID: 6931284782330381440}
 --- !u!54 &477511279136886061
 Rigidbody:
