@@ -46,6 +46,8 @@ public class ResultScreen : MonoBehaviour
         var totalScore = corrFinedPoints + wronFinedPoints + wronSkippedPoints + timePoints;
 
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         dataText.text =
             timeTaken + "\n\n" +
 

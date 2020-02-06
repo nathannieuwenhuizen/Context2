@@ -19,6 +19,10 @@ public class Traveler : MonoBehaviour
     [SerializeField]
     private float rotationDamping = 10;
 
+    [Header("Appearance info")]
+    [SerializeField]
+    private Material mat;
+    
     [Header("UI sprites")]
     [SerializeField]
     private Sprite correct;
@@ -28,12 +32,20 @@ public class Traveler : MonoBehaviour
     private Image statusImage;
     [SerializeField]
     private GameObject statusObject;
+    [SerializeField]
+    private Text dialogueText;
+    [SerializeField]
+    private float dialogueDuration = 0.5f;
 
     private bool menuIsShown;
+
+    private AudioSource audioS;
     void Start()
     {
         HideMenu();
         statusObject.SetActive(false);
+
+        audioS = GetComponent<AudioSource>();
 
         appearance = new Appearance();
         appearance.Randomnize();
@@ -42,6 +54,7 @@ public class Traveler : MonoBehaviour
 
     public void ShowMenu()
     {
+        Talk(Data.GetRandomFromList(Data.greetingDialogues));
         optionMenu.SetActive(true);
         menuIsShown = true;
     }
@@ -52,14 +65,26 @@ public class Traveler : MonoBehaviour
     }
     public void ApplyAppearance()
     {
+        switch (appearance.clothes)
+        {
+            case Clothes.black:
 
+                break;
+            case Clothes.blue:
+
+                break;
+            case Clothes.red:
+
+                break;
+        }
     }
 
     public void CheckTicket()
     {
         if (ticketChecked) { return; }
 
-
+        audioS.Play();
+        Talk(Data.GetRandomFromList(Data.checkedDialogue));
         ticketChecked = true;
         statusObject.SetActive(true);
         statusImage.sprite = ticketIsValid ? correct : incorrect;
@@ -101,18 +126,34 @@ public class Traveler : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationDamping);
         }
     }
+
+    public void Talk(string line)
+    {
+        dialogueText.text = "";
+        StartCoroutine(Talking(line));
+    }
+    private IEnumerator Talking(string line)
+    {
+        float interval = dialogueDuration / line.Length;
+        for (int i = 0; i < line.Length; i++)
+        {
+            dialogueText.text += line[i];
+            yield return new WaitForSeconds(interval);
+        }
+    }
+
 }
 
 public class Appearance {
     public Clothes clothes;
-    public HairColor hairColor;
-    public HairStyle hairStyle;
+    //public HairColor hairColor;
+    //public HairStyle hairStyle;
 
     public void Randomnize()
     {
         clothes = GetRandomEnum<Clothes>();
-        hairColor = GetRandomEnum<HairColor>();
-        hairStyle = GetRandomEnum<HairStyle>();
+        //hairColor = GetRandomEnum<HairColor>();
+        //hairStyle = GetRandomEnum<HairStyle>();
     }
     static T GetRandomEnum<T>()
     {

@@ -16,11 +16,13 @@ public class Conductur : MonoBehaviour
     private Transform cameraTransform;
 
     private Traveler selectedTraveler;
+    private AudioSource audioS;
 
     void Start()
     {
         finedTravelers = new List<Traveler>();
         rb = GetComponent<Rigidbody>();
+        audioS = GetComponent<AudioSource>();
 
         instance = this;
     }
@@ -44,6 +46,8 @@ public class Conductur : MonoBehaviour
                     //check traveler
                     if (objectHit.transform.parent.GetComponent<Traveler>())
                     {
+                        audioS.Play();
+
                         SelectedTraveler = objectHit.transform.parent.GetComponent<Traveler>();
                         SelectedTraveler.ShowMenu();
 
@@ -57,15 +61,15 @@ public class Conductur : MonoBehaviour
                         }
                     } else
                     {
-                        NoTravelerSelected();
+                        //NoTravelerSelected();
                     }
                 } else
                 {
-                    NoTravelerSelected();
+                    //NoTravelerSelected();
                 }
             } else
             {
-                NoTravelerSelected();
+                //NoTravelerSelected();
             }
         }
 
