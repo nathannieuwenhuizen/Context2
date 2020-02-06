@@ -8,7 +8,16 @@ public class ResultScreen : MonoBehaviour
 
     [Header("UI data text")]
     [SerializeField] private Text dataText;
-    [SerializeField] private Text scoresText;
+    [SerializeField] private Text corrFinedText;
+    [SerializeField] private Text corrFinedPointsText;
+    [SerializeField] private Text wronSkippedText;
+    [SerializeField] private Text wronSkippedPointsText;
+    [SerializeField] private Text wronFinedText;
+    [SerializeField] private Text wronFinedPointsText;
+    [SerializeField] private Text timeText;
+    [SerializeField] private Text timePointsText;
+    [SerializeField] private Text timeFormattedText;
+    [SerializeField] private Text playerScoreText;
 
     [Header("Score tweak")]
     [SerializeField] float verkeerdGeskiptGewicht = -1;
@@ -21,12 +30,10 @@ public class ResultScreen : MonoBehaviour
     [SerializeField] float highScoreFirst = 17104;
 
     [Header("Final level")]
-    [SerializeField]
-    private GameObject quitButton;
-    [SerializeField] 
-    private GameObject continueButton;
-    [SerializeField]
-    private Text endNote;
+    [SerializeField] private GameObject quitButton;
+    [SerializeField] private GameObject continueButton;
+    [SerializeField] private Text endNote;
+    [SerializeField] private Image endNoteBackground;
 
     // amount fined = iedereen die je hebt beboet
     // percentagechecked = percentage die je hebt hebt gecontroleerd
@@ -43,20 +50,22 @@ public class ResultScreen : MonoBehaviour
             quitButton.SetActive(true);
             continueButton.SetActive(false);
             endNote.gameObject.SetActive(true);
+            endNoteBackground.gameObject.SetActive(true);
             if (Data.amountIlligalMissed > 0)
             {
                 endNote.text = "IMPORTANT! \n" +
-                    "The inspector has controlled your activity and you gave some passengers the wrong ticket! You are racist! FIRED!";
+                    "Your performance has been measured and you have incorrectly fined passengers with valid tickets based on prejudice! You have been FIRED because of discrimination!";
             } else
             {
                 endNote.text = "IMPORTANT! \n" +
-    "The inspector has controlled your activity and you were so succesful!!! YOU'RE PROMOTED!";
+                    "The inspector has measured your performance and you are found popular and exact! You're PROMOTED!";
 
             }
         } else
         {
             quitButton.SetActive(false);
             endNote.gameObject.SetActive(false);
+            endNoteBackground.gameObject.SetActive(false);
         }
 
         var minutes = Data.timePassed / 60;
@@ -92,7 +101,19 @@ public class ResultScreen : MonoBehaviour
             if (totalScore > highScoreFirst)
             {
                 Data.finalLevel = true;
-            }
+            };
+
+        corrFinedText.text = corrFined.ToString();
+        corrFinedPointsText.text = corrFinedPoints.ToString();
+        wronSkippedText.text = wronSkipped.ToString();
+        wronSkippedPointsText.text = wronSkippedPoints.ToString();
+        wronFinedText.text = wronFined.ToString();
+        wronFinedPointsText.text = wronFinedPoints.ToString();
+        timeText.text = Mathf.Ceil(Data.timePassed).ToString();
+        timePointsText.text = timePoints.ToString();
+        timeFormattedText.text = timeTaken;
+        playerScoreText.text = totalScore.ToString();
+
     }
 
     void Update()
