@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,12 +10,18 @@ public class GameManager : MonoBehaviour
 
     public Stopwatch stopwatch;
 
+    [SerializeField]
+    private GameObject dayText;
+
     private void Awake()
     {
         instance = this;
     }
-    void Start()
+
+    public void Start()
     {
+        dayText.GetComponent<Text>().text = "Day " + Data.day;
+        Destroy(dayText, 2f);
     }
 
     public void End()
@@ -26,8 +33,9 @@ public class GameManager : MonoBehaviour
         Data.finedAppearances = Conductur.instance.finedTravelers;
         Data.precentageChecked = GetPrecentageChecked();
 
-        GetComponent<SceneLoader>().LoadSceneByBuildIndex(1);
+        GetComponent<SceneLoader>().LoadSceneByBuildIndex(2);
     }
+
 
     public int GetAmountWronglyFined()
     {

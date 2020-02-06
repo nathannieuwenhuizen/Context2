@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 7842199773688456196}
   - component: {fileID: 635992053538403621}
   - component: {fileID: 7712673650528410611}
+  - component: {fileID: 7173698236322359320}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -434,3 +435,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moving: 0
   speed: 2
+--- !u!114 &7173698236322359320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471941048521535108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae6a19cbec94114c84828c3de90bd5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadingOut: 0
+  alphaFadeValue: 1
+  fadeSpeed: 1
+  fadingColor: {r: 0, g: 0, b: 0, a: 1}

@@ -11,6 +11,7 @@ public class ResultScreen : MonoBehaviour
     private Text dataText;
     void Start()
     {
+        Data.day++;
 
         var minutes = Data.timePassed / 60;
         var seconds = Data.timePassed % 60;
