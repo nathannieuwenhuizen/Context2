@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 387376432943687681}
   - component: {fileID: 8663582557150401079}
   - component: {fileID: 3100643700073803470}
+  - component: {fileID: 4881816612332414908}
   m_Layer: 0
   m_Name: metroDoord
   m_TagString: Untagged
@@ -78,6 +79,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4881816612332414908
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691655408224672274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.694138, y: 2.0004919, z: 2.6646926}
+  m_Center: {x: -0.00000023841864, y: 0, z: 0}
 --- !u!1 &4619154034382235825
 GameObject:
   m_ObjectHideFlags: 0
