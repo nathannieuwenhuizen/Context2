@@ -12,8 +12,8 @@ public class ResultScreen : MonoBehaviour
     void Start()
     {
 
-        var minutes = Data.timeLeft / 60;
-        var seconds = Data.timeLeft % 60;
+        var minutes = Data.timePassed / 60;
+        var seconds = Data.timePassed % 60;
 
         string timeLeft = string.Format("{0:00}:{1:00}", Mathf.Floor(minutes), seconds);
 

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-    public Timer timer;
+    public Stopwatch stopwatch;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public void End()
     {
         Data.amountFined = Conductur.instance.finedTravelers.Count;
-        Data.timeLeft = timer.timeLeft;
+        Data.timePassed = stopwatch.TimePassed;
         Data.amountWronglyFined = GetAmountWronglyFined();
         Data.amountIlligalMissed = GetAmountIllegalsMissed();
         Data.finedAppearances = Conductur.instance.finedTravelers;
