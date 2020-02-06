@@ -12,7 +12,7 @@ public static class Data
     public static int amountIlligalMissed;
 
     public static int day = 1;
-
+    public static bool finalLevel = false;
 
     public static Clothes patternIndex = Appearance.GetRandomEnum<Clothes>();
     //dialogues

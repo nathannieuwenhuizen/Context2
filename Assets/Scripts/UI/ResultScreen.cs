@@ -20,6 +20,14 @@ public class ResultScreen : MonoBehaviour
     [Header("Fake Highscores")]
     [SerializeField] float highScoreFirst = 17104;
 
+    [Header("Final level")]
+    [SerializeField]
+    private GameObject quitButton;
+    [SerializeField] 
+    private GameObject continueButton;
+    [SerializeField]
+    private Text endNote;
+
     // amount fined = iedereen die je hebt beboet
     // percentagechecked = percentage die je hebt hebt gecontroleerd
     // wrongly fined = mensen die je verkeerd hebt beboet
@@ -29,6 +37,11 @@ public class ResultScreen : MonoBehaviour
     void Start()
     {
         Data.day++;
+
+        if (Data.finalLevel)
+        {
+
+        }
 
         var minutes = Data.timePassed / 60;
         var seconds = Data.timePassed % 60;
@@ -58,7 +71,12 @@ public class ResultScreen : MonoBehaviour
 
             totalScore + "\n\n" +
 
+            
             (totalScore > highScoreFirst ? totalScore : highScoreFirst);
+            if (totalScore > highScoreFirst)
+            {
+                Data.finalLevel = true;
+            }
     }
 
     void Update()

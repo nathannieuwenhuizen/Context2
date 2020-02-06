@@ -27,6 +27,9 @@ public class MetroGen : MonoBehaviour {
     [SerializeField]
     private bool randomPattern = false;
     [SerializeField]
+    [Range(0, 100)]
+    private float precentageCorrect = 50;
+    [SerializeField]
     private int amountPatternTravelers = 5;
 
     private void Start() {
@@ -110,7 +113,7 @@ public class MetroGen : MonoBehaviour {
                 traveler.Appearance = new Appearance();
                 traveler.Appearance.Randomnize();
                 traveler.ApplyAppearance();
-                if (Random.Range(0, 100) > 50)
+                if (Random.Range(0, 100) > precentageCorrect)
                 {
                     traveler.TicketIsValid = false;
                 }

@@ -13,9 +13,19 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject dayText;
 
+    [SerializeField]
+    private GameObject baseLevel;
+    [SerializeField]
+    private GameObject finalLevel;
     private void Awake()
     {
         instance = this;
+        if (!Data.finalLevel)
+        {
+            baseLevel.SetActive(false);
+            finalLevel.SetActive(true);
+        }
+
     }
 
     public void Start()
