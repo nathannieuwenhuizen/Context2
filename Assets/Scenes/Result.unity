@@ -3069,7 +3069,7 @@ MonoBehaviour:
   timePointsText: {fileID: 1204888077}
   timeFormattedText: {fileID: 323884600}
   playerScoreText: {fileID: 1719269427}
-  verkeerdGeskiptGewicht: -1
+  verkeerdGeskiptGewicht: -5
   correctBeboetGewicht: 1
   verkeerBeboetGewicht: -5
   tijdGewicht: 100
