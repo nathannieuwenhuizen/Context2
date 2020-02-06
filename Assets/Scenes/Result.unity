@@ -249,7 +249,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d2787475ed9639241b5cc306cff9c4f5, type: 3}
+    m_Font: {fileID: 12800000, guid: f68aee8621999464da5312e27817372f, type: 3}
     m_FontSize: 21
     m_FontStyle: 0
     m_BestFit: 1
@@ -261,7 +261,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue
+  m_Text: CONTINUE
 --- !u!222 &259362543
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1006,7 +1006,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 17104
+  m_Text: '12308
+
+'
 --- !u!222 &641722866
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1462,7 +1464,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 17011
+  m_Text: 12099
 --- !u!222 &885864314
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1787,7 +1789,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 17096
+  m_Text: '12281
+
+'
 --- !u!222 &1050496683
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2525,7 +2529,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 17053
+  m_Text: 12240
 --- !u!222 &1450581830
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2590,7 +2594,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d2787475ed9639241b5cc306cff9c4f5, type: 3}
+    m_Font: {fileID: 12800000, guid: f68aee8621999464da5312e27817372f, type: 3}
     m_FontSize: 21
     m_FontStyle: 0
     m_BestFit: 1
@@ -2602,7 +2606,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: End
+  m_Text: END
 --- !u!222 &1472463842
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2758,7 +2762,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 17008
+  m_Text: 12076
 --- !u!222 &1496432677
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3067,10 +3071,10 @@ MonoBehaviour:
   playerScoreText: {fileID: 1719269427}
   verkeerdGeskiptGewicht: -1
   correctBeboetGewicht: 1
-  verkeerBeboetGewicht: -3
+  verkeerBeboetGewicht: -5
   tijdGewicht: 100
   scoreMultiplier: 1000
-  highScoreFirst: 17104
+  highScoreFirst: 12308
   quitButton: {fileID: 1650101082}
   continueButton: {fileID: 878137547}
   endNote: {fileID: 636081575}
