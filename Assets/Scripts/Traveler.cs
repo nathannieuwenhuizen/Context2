@@ -19,6 +19,10 @@ public class Traveler : MonoBehaviour
     [SerializeField]
     private float rotationDamping = 10;
 
+    [Header("Appearance info")]
+    [SerializeField]
+    private Material mat;
+    
     [Header("UI sprites")]
     [SerializeField]
     private Sprite correct;
@@ -52,7 +56,18 @@ public class Traveler : MonoBehaviour
     }
     public void ApplyAppearance()
     {
+        switch (appearance.clothes)
+        {
+            case Clothes.black:
 
+                break;
+            case Clothes.blue:
+
+                break;
+            case Clothes.red:
+
+                break;
+        }
     }
 
     public void CheckTicket()
@@ -105,14 +120,14 @@ public class Traveler : MonoBehaviour
 
 public class Appearance {
     public Clothes clothes;
-    public HairColor hairColor;
-    public HairStyle hairStyle;
+    //public HairColor hairColor;
+    //public HairStyle hairStyle;
 
     public void Randomnize()
     {
         clothes = GetRandomEnum<Clothes>();
-        hairColor = GetRandomEnum<HairColor>();
-        hairStyle = GetRandomEnum<HairStyle>();
+        //hairColor = GetRandomEnum<HairColor>();
+        //hairStyle = GetRandomEnum<HairStyle>();
     }
     static T GetRandomEnum<T>()
     {

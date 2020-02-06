@@ -11,6 +11,5 @@ public static class Data
     public static int amountWronglyFined;
     public static int amountIlligalMissed;
 
-
     public static int day = 1;
 }

@@ -806,10 +806,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a994304d00b40b41a9d328b9f6916cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ticketIsValid: 1
   optionMenu: {fileID: 2236884664169919524}
   pivotMenu: {fileID: 7840068370970496616}
   rotationDamping: 20
+  mat: {fileID: 0}
   correct: {fileID: 21300000, guid: bf674e8d4353fbe4ab455f2ab3311b2e, type: 3}
   incorrect: {fileID: 21300000, guid: e443d88a9ef6c304cb4775fa9a713601, type: 3}
   statusImage: {fileID: 699476320116230672}
