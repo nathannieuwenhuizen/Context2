@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 4151974466794781442}
   - component: {fileID: 1807023589102566281}
   - component: {fileID: 3998519474177228250}
+  - component: {fileID: 2083241945245676220}
   m_Layer: 0
   m_Name: ears
   m_TagString: Untagged
@@ -202,6 +203,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2083241945245676220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998163885764529287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed9f5d350471d04f974e96246826579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: 60b26e05907b5e44caf6e39f976528d6, type: 3}
+  - {fileID: 2800000, guid: 4d55a377974fc2748bae20792c7f778a, type: 3}
+  - {fileID: 2800000, guid: 2a8705e90f0cb7647aa0de12d8221efa, type: 3}
 --- !u!1 &1170588486604929116
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +339,7 @@ GameObject:
   - component: {fileID: 5479935158863424474}
   - component: {fileID: 2993160843248055874}
   - component: {fileID: 693318788157852734}
+  - component: {fileID: 8661823209456228288}
   m_Layer: 0
   m_Name: eyes
   m_TagString: Untagged
@@ -389,6 +407,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8661823209456228288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722774371293322374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed9f5d350471d04f974e96246826579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: 60b26e05907b5e44caf6e39f976528d6, type: 3}
+  - {fileID: 2800000, guid: 4d55a377974fc2748bae20792c7f778a, type: 3}
+  - {fileID: 2800000, guid: 2a8705e90f0cb7647aa0de12d8221efa, type: 3}
 --- !u!1 &1843727738787515186
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +465,7 @@ GameObject:
   - component: {fileID: 4888618365174661945}
   - component: {fileID: 5067077861497777414}
   - component: {fileID: 2260920032669462350}
+  - component: {fileID: 5129539643225000299}
   m_Layer: 0
   m_Name: mouth
   m_TagString: Untagged
@@ -498,6 +533,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5129539643225000299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494658172488630140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed9f5d350471d04f974e96246826579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: 60b26e05907b5e44caf6e39f976528d6, type: 3}
+  - {fileID: 2800000, guid: 4d55a377974fc2748bae20792c7f778a, type: 3}
+  - {fileID: 2800000, guid: 2a8705e90f0cb7647aa0de12d8221efa, type: 3}
 --- !u!1 &2648825621829133228
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +808,7 @@ GameObject:
   - component: {fileID: 6869071897453340126}
   - component: {fileID: 43527185894414971}
   - component: {fileID: 6802256370257025757}
+  - component: {fileID: 1768865440022753336}
   m_Layer: 0
   m_Name: nose
   m_TagString: Untagged
@@ -824,6 +876,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1768865440022753336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3715312840902064339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed9f5d350471d04f974e96246826579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: 60b26e05907b5e44caf6e39f976528d6, type: 3}
+  - {fileID: 2800000, guid: 4d55a377974fc2748bae20792c7f778a, type: 3}
+  - {fileID: 2800000, guid: 2a8705e90f0cb7647aa0de12d8221efa, type: 3}
 --- !u!1 &3749344335077259584
 GameObject:
   m_ObjectHideFlags: 0
