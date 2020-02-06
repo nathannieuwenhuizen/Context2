@@ -38,10 +38,14 @@ public class Traveler : MonoBehaviour
     private float dialogueDuration = 0.5f;
 
     private bool menuIsShown;
+
+    private AudioSource audioS;
     void Start()
     {
         HideMenu();
         statusObject.SetActive(false);
+
+        audioS = GetComponent<AudioSource>();
 
         appearance = new Appearance();
         appearance.Randomnize();
@@ -79,6 +83,7 @@ public class Traveler : MonoBehaviour
     {
         if (ticketChecked) { return; }
 
+        audioS.Play();
         Talk(Data.GetRandomFromList(Data.checkedDialogue));
         ticketChecked = true;
         statusObject.SetActive(true);

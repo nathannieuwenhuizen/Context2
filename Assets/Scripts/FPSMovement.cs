@@ -17,7 +17,7 @@ public class FPSMovement : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-
+        Cursor.visible = false;
     }
     private Vector2 getMouseDelta()
     {

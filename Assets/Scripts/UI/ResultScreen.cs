@@ -19,6 +19,8 @@ public class ResultScreen : MonoBehaviour
         string timeLeft = string.Format("{0:00}:{1:00}", Mathf.Floor(minutes), seconds);
 
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         dataText.text =
             timeLeft + " \n" +
             Data.amountFined + "\n" +
