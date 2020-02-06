@@ -50,7 +50,7 @@ public class Traveler : MonoBehaviour
     [SerializeField]
     private GameObject fineMessage;
 
-    private bool menuIsShown;
+    public bool menuIsShown;
 
     private AudioSource audioS;
     void Start()
@@ -70,6 +70,7 @@ public class Traveler : MonoBehaviour
         optionMenu.SetActive(true);
         menuIsShown = true;
     }
+
     public void HideMenu()
     {
         optionMenu.SetActive(false);
