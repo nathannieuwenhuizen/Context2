@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587271, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -634,5 +634,102 @@ PrefabInstance:
       propertyPath: finalLevel
       value: 
       objectReference: {fileID: 153534142}
+    - target: {fileID: 347257527090228817, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 347257527090228817, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -36.149994
+      objectReference: {fileID: 0}
+    - target: {fileID: 347257527090228817, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 385.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 347257527090228817, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 72.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919537458101644584, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919537458101644584, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919537458101644584, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919537458101644584, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919537458101644584, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919537458101644584, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1602.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919537458101644584, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 894
+      objectReference: {fileID: 0}
+    - target: {fileID: 7991327445293594579, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f68aee8621999464da5312e27817372f,
+        type: 3}
+    - target: {fileID: 7991327445293594579, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7991327445293594579, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587215940870331209, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f68aee8621999464da5312e27817372f,
+        type: 3}
+    - target: {fileID: 2587215940870331209, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587215940870331209, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587215940870331209, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587215940870331209, guid: f214805989ec7ed4b805fb3220128d29,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f214805989ec7ed4b805fb3220128d29, type: 3}

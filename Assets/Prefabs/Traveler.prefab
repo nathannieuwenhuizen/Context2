@@ -398,7 +398,7 @@ RectTransform:
   m_GameObject: {fileID: 3737952963039926147}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 5923650400177918279}
   m_RootOrder: 0
@@ -435,17 +435,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d2787475ed9639241b5cc306cff9c4f5, type: 3}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: f68aee8621999464da5312e27817372f, type: 3}
+    m_FontSize: 70
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Give fine!
 --- !u!1 &3892688279504997663
@@ -585,7 +585,7 @@ RectTransform:
   m_GameObject: {fileID: 4358746314358823899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 5555530377907502468}
   m_RootOrder: 0
@@ -622,17 +622,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d2787475ed9639241b5cc306cff9c4f5, type: 3}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: f68aee8621999464da5312e27817372f, type: 3}
+    m_FontSize: 70
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 70
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Check ticket
 --- !u!1 &5073221369838171036
@@ -1137,11 +1137,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c3f7dbe92ad1b7641a18c07a04215d56, type: 3}
-    m_FontSize: 20
+    m_Font: {fileID: 12800000, guid: 1d149e505d216c646a1b962278119995, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 2
+    m_BestFit: 0
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1149,7 +1149,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hello conductur!
+  m_Text: Hello conductor!
 --- !u!1 &8750762252043173618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,17 +1215,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d2787475ed9639241b5cc306cff9c4f5, type: 3}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: f68aee8621999464da5312e27817372f, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 2
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 50
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Status:'
 --- !u!114 &3302511337901288041
@@ -1308,7 +1308,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d2787475ed9639241b5cc306cff9c4f5, type: 3}
+    m_Font: {fileID: 12800000, guid: f68aee8621999464da5312e27817372f, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -1343,11 +1343,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6794346089465916704}
     m_Modifications:
-    - target: {fileID: 2648825621829133228, guid: a486135ba9ec56b429cf2b5b6c76edcb,
+    - target: {fileID: 7862023374835980736, guid: a486135ba9ec56b429cf2b5b6c76edcb,
         type: 3}
-      propertyPath: m_Name
-      value: passenger
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e2edc898e28fd564a822bba010f8cb10, type: 2}
+    - target: {fileID: 5401222710959513333, guid: a486135ba9ec56b429cf2b5b6c76edcb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e2edc898e28fd564a822bba010f8cb10, type: 2}
     - target: {fileID: 1340345384551240127, guid: a486135ba9ec56b429cf2b5b6c76edcb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1418,21 +1423,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7269312
       objectReference: {fileID: 0}
-    - target: {fileID: 7862023374835980736, guid: a486135ba9ec56b429cf2b5b6c76edcb,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e2edc898e28fd564a822bba010f8cb10, type: 2}
     - target: {fileID: 61885141120935915, guid: a486135ba9ec56b429cf2b5b6c76edcb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e2edc898e28fd564a822bba010f8cb10, type: 2}
-    - target: {fileID: 5401222710959513333, guid: a486135ba9ec56b429cf2b5b6c76edcb,
+    - target: {fileID: 2648825621829133228, guid: a486135ba9ec56b429cf2b5b6c76edcb,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e2edc898e28fd564a822bba010f8cb10, type: 2}
+      propertyPath: m_Name
+      value: passenger
+      objectReference: {fileID: 0}
     - target: {fileID: 7524904202135444747, guid: a486135ba9ec56b429cf2b5b6c76edcb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
