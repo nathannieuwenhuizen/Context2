@@ -24,6 +24,10 @@ public class MetroGen : MonoBehaviour {
     [SerializeField] int amountOfTravelers = 10;
     [SerializeField] GameObject travelerPrefab;
     public List<Traveler> travelers;
+    [SerializeField]
+    private bool randomPattern = false;
+    [SerializeField]
+    private int amountPatternTravelers = 5;
 
     private void Start() {
         instance = this;
@@ -72,24 +76,77 @@ public class MetroGen : MonoBehaviour {
 
     public void GenerateTravelers()
     {
+        //if (Data.patternIndex)
+        //Data.patternIndex = Appearance.GetRandomEnum<Clothes>();
+
         GameObject travelerParent = new GameObject("travelers");
 
         travelers = new List<Traveler>();
+
+        int currentAmountPatterns = 0;
         for (int i = 0; i < amountOfTravelers; i++)
         {
-
-            int randomIndex = Random.Range(0, sitPoints.Count);
+            if (sitPoints.Count < 2) { return; }
+            
+            //position
+            int randomIndex = Random.Range(0, sitPoints.Count - 1);
             Vector3 spawnPos = sitPoints[randomIndex].position;
             sitPoints.Remove(sitPoints[randomIndex]);
 
+            //instantiation
             Traveler traveler = GameObject.Instantiate(
-                travelerPrefab, spawnPos, Quaternion.identity, travelerParent.transform)
+                travelerPrefab, spawnPos, sitPoints[randomIndex].rotation, travelerParent.transform)
                 .GetComponent<Traveler>();
             travelers.Add(traveler);
 
-            if (Random.Range(0, 100) > 50)
+            //TODO: hard coded! checks on x pos
+            if (traveler.transform.position.x < 0)
             {
-                traveler.TicketIsValid = false;
+                traveler.transform.Rotate(new Vector3(0, 180, 0));
+            }
+
+            if (randomPattern)
+            {
+                traveler.Appearance = new Appearance();
+                traveler.Appearance.Randomnize();
+                traveler.ApplyAppearance();
+                if (Random.Range(0, 100) > 50)
+                {
+                    traveler.TicketIsValid = false;
+                }
+            } else
+            {
+                currentAmountPatterns++;
+                if (currentAmountPatterns <= amountPatternTravelers)
+                {
+                    traveler.Appearance = new Appearance();
+                    Debug.Log("Green from gen");
+                    traveler.Appearance.clothes = Data.patternIndex;
+                    traveler.ApplyAppearance();
+
+                    traveler.TicketIsValid = false;
+                    traveler.gameObject.name = traveler.Appearance.clothes + "False!";
+                } else
+                {
+                    traveler.Appearance = new Appearance();
+                    traveler.Appearance.Randomnize();
+                    traveler.ApplyAppearance();
+
+                    //if there are too many patterncolor travelers
+                    if (traveler.Appearance.clothes == Data.patternIndex)
+                    {
+                        traveler.gameObject.name = traveler.Appearance.clothes + " Should not be false!";
+
+                        //get every other color exept the pattern color!
+                        Debug.Log("no more green!");
+                        int enumLength = System.Enum.GetValues(typeof(Clothes)).Length;
+                        traveler.Appearance.clothes = traveler.Appearance.clothes + Random.Range(1, enumLength - 1) % enumLength;
+                        traveler.ApplyAppearance();
+                    } else
+                    {
+                        traveler.gameObject.name = traveler.Appearance.clothes + "";
+                    }
+                }
             }
         }
     }

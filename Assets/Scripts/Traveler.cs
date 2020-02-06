@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Traveler : MonoBehaviour
 {
-    Appearance appearance;
+    [SerializeField]
+    private Appearance appearance;
     private bool ticketIsValid = true;
 
     private bool fined = false;
@@ -21,7 +22,7 @@ public class Traveler : MonoBehaviour
 
     [Header("Appearance info")]
     [SerializeField]
-    private Material mat;
+    private SkinnedMeshRenderer[] meshRenderers;
     
     [Header("UI sprites")]
     [SerializeField]
@@ -47,9 +48,9 @@ public class Traveler : MonoBehaviour
 
         audioS = GetComponent<AudioSource>();
 
-        appearance = new Appearance();
-        appearance.Randomnize();
-        ApplyAppearance();
+        //appearance = new Appearance();
+        //appearance.Randomnize();
+        //ApplyAppearance();
     }
 
     public void ShowMenu()
@@ -68,13 +69,22 @@ public class Traveler : MonoBehaviour
         switch (appearance.clothes)
         {
             case Clothes.black:
-
+                ShirtColor = new Color(0, 0, 0);
                 break;
             case Clothes.blue:
-
+                ShirtColor = new Color(0, 0, 1);
                 break;
             case Clothes.red:
-
+                ShirtColor = new Color(1, 0, 0);
+                break;
+            case Clothes.green:
+                ShirtColor = new Color(0, 1, 0);
+                break;
+            case Clothes.yellow:
+                ShirtColor = new Color(0, 1, 1);
+                break;
+            default:
+                ShirtColor = new Color(0, 0, 0);
                 break;
         }
     }
@@ -90,6 +100,14 @@ public class Traveler : MonoBehaviour
         statusImage.sprite = ticketIsValid ? correct : incorrect;
     }
 
+    public Appearance Appearance
+    {
+        get { return appearance; }
+        set {
+            appearance = value;
+            ApplyAppearance();
+        }
+    }
     public void RecieveFine()
     {
         if (fined) { return; }
@@ -115,6 +133,26 @@ public class Traveler : MonoBehaviour
         get { return ticketChecked; }
         set { ticketChecked = value; }
     }
+    public Color ShirtColor
+    {
+        get
+        {
+            if (meshRenderers.Length > 0)
+            {
+                return meshRenderers[0].material.color;
+            } else
+            {
+                return new Color();
+            }
+        }
+        set
+        {
+            for (int i = 0; i < meshRenderers.Length; i++)
+            {
+                meshRenderers[i].material.color = value;
+            }
+        }
+    }
 
     void Update()
     {
@@ -123,7 +161,7 @@ public class Traveler : MonoBehaviour
             var lookPos = transform.position - Conductur.instance.transform.position;
             lookPos.y = 0;
             var rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationDamping);
+            pivotMenu.rotation = Quaternion.Slerp(pivotMenu.rotation, rotation, Time.deltaTime * rotationDamping);
         }
     }
 
@@ -155,7 +193,7 @@ public class Appearance {
         //hairColor = GetRandomEnum<HairColor>();
         //hairStyle = GetRandomEnum<HairStyle>();
     }
-    static T GetRandomEnum<T>()
+    public static T GetRandomEnum<T>()
     {
         System.Array A = System.Enum.GetValues(typeof(T));
         T V = (T)A.GetValue(UnityEngine.Random.Range(0, A.Length));
@@ -168,7 +206,9 @@ public enum Clothes
 {
     red,
     black,
-    blue
+    blue,
+    yellow,
+    green,
 }
 public enum HairColor
 {
