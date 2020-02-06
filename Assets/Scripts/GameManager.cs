@@ -20,11 +20,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        if (!Data.finalLevel)
-        {
-            baseLevel.SetActive(false);
-            finalLevel.SetActive(true);
-        }
+        baseLevel.SetActive(!Data.finalLevel);
+        finalLevel.SetActive(Data.finalLevel);
 
     }
 
