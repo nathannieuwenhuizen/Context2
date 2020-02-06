@@ -40,7 +40,23 @@ public class ResultScreen : MonoBehaviour
 
         if (Data.finalLevel)
         {
+            quitButton.SetActive(true);
+            continueButton.SetActive(false);
+            endNote.gameObject.SetActive(true);
+            if (Data.amountIlligalMissed > 0)
+            {
+                endNote.text = "IMPORTANT! \n" +
+                    "The inspector has controlled your activity and you gave some passengers the wrong ticket! You are racist! FIRED!";
+            } else
+            {
+                endNote.text = "IMPORTANT! \n" +
+    "The inspector has controlled your activity and you were so succesful!!! YOU'RE PROMOTED!";
 
+            }
+        } else
+        {
+            quitButton.SetActive(false);
+            endNote.gameObject.SetActive(false);
         }
 
         var minutes = Data.timePassed / 60;

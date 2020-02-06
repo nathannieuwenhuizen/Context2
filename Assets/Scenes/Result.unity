@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.97694933, b: 0.28773582, a: 1}
+  m_Color: {r: 1, g: 0.19103625, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -384,7 +384,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: c3f7dbe92ad1b7641a18c07a04215d56, type: 3}
     m_FontSize: 41
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 41
     m_Alignment: 0
@@ -395,7 +395,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'INFORMATION!
 
-    The inspector has controlled your activity and you were succesful!'
+    The inspector has controlled your activity and you gave some passengers the wrong
+    ticket! You are racist! FIRED!'
 --- !u!222 &636081576
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1093,9 +1094,9 @@ MonoBehaviour:
   tijdGewicht: 100
   scoreMultiplier: 1000
   highScoreFirst: 17104
-  quitButton: {fileID: 0}
-  continueButton: {fileID: 0}
-  endNote: {fileID: 0}
+  quitButton: {fileID: 1650101082}
+  continueButton: {fileID: 878137547}
+  endNote: {fileID: 636081575}
 --- !u!1 &1650101082
 GameObject:
   m_ObjectHideFlags: 0
