@@ -30,6 +30,28 @@ public class Conductur : MonoBehaviour
     void Update()
     {
         CheckClickEvent();
+
+        if (selectedTraveler != null)
+        {
+            Vector3 fwd = cameraTransform.transform.TransformDirection(Vector3.forward);
+            if (selectedTraveler.menuIsShown == true)
+            {
+                RaycastHit objectHitHover;
+                if (Physics.Raycast(cameraTransform.transform.position, fwd, out objectHitHover, 50))
+                {
+                    if (objectHitHover.collider.tag == "Traveler")
+                    {
+
+                    }
+                    else
+                    {
+                        selectedTraveler.HideMenu();
+                        selectedTraveler = null;
+                    }
+                    
+                }
+            }
+        }
     }
     private void CheckClickEvent()
     {

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 949469109993790422}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Traveler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 3213125764091630623}
   m_Layer: 0
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Traveler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -977,6 +977,7 @@ MonoBehaviour:
   checkButton: {fileID: 5904148492917538618}
   fineButton: {fileID: 2544512963766782046}
   fineMessage: {fileID: 8848838205273920485}
+  menuIsShown: 0
 --- !u!82 &6162252631435479070
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1343,6 +1344,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6794346089465916704}
     m_Modifications:
+    - target: {fileID: 2648825621829133228, guid: a486135ba9ec56b429cf2b5b6c76edcb,
+        type: 3}
+      propertyPath: m_Name
+      value: passenger
+      objectReference: {fileID: 0}
     - target: {fileID: 7862023374835980736, guid: a486135ba9ec56b429cf2b5b6c76edcb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1428,11 +1434,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e2edc898e28fd564a822bba010f8cb10, type: 2}
-    - target: {fileID: 2648825621829133228, guid: a486135ba9ec56b429cf2b5b6c76edcb,
-        type: 3}
-      propertyPath: m_Name
-      value: passenger
-      objectReference: {fileID: 0}
     - target: {fileID: 7524904202135444747, guid: a486135ba9ec56b429cf2b5b6c76edcb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
