@@ -57,15 +57,15 @@ public class Conductur : MonoBehaviour
                         }
                     } else
                     {
-                        NoTravelerSelected();
+                        //NoTravelerSelected();
                     }
                 } else
                 {
-                    NoTravelerSelected();
+                    //NoTravelerSelected();
                 }
             } else
             {
-                NoTravelerSelected();
+                //NoTravelerSelected();
             }
         }
 

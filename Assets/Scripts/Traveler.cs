@@ -32,6 +32,10 @@ public class Traveler : MonoBehaviour
     private Image statusImage;
     [SerializeField]
     private GameObject statusObject;
+    [SerializeField]
+    private Text dialogueText;
+    [SerializeField]
+    private float dialogueDuration = 0.5f;
 
     private bool menuIsShown;
     void Start()
@@ -46,6 +50,7 @@ public class Traveler : MonoBehaviour
 
     public void ShowMenu()
     {
+        Talk(Data.GetRandomFromList(Data.greetingDialogues));
         optionMenu.SetActive(true);
         menuIsShown = true;
     }
@@ -74,7 +79,7 @@ public class Traveler : MonoBehaviour
     {
         if (ticketChecked) { return; }
 
-
+        Talk(Data.GetRandomFromList(Data.checkedDialogue));
         ticketChecked = true;
         statusObject.SetActive(true);
         statusImage.sprite = ticketIsValid ? correct : incorrect;
@@ -116,6 +121,22 @@ public class Traveler : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationDamping);
         }
     }
+
+    public void Talk(string line)
+    {
+        dialogueText.text = "";
+        StartCoroutine(Talking(line));
+    }
+    private IEnumerator Talking(string line)
+    {
+        float interval = dialogueDuration / line.Length;
+        for (int i = 0; i < line.Length; i++)
+        {
+            dialogueText.text += line[i];
+            yield return new WaitForSeconds(interval);
+        }
+    }
+
 }
 
 public class Appearance {
