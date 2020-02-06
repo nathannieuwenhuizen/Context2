@@ -23,7 +23,7 @@ public class Conductur : MonoBehaviour
         finedTravelers = new List<Traveler>();
         rb = GetComponent<Rigidbody>();
         audioS = GetComponent<AudioSource>();
-
+        
         instance = this;
     }
 
@@ -57,7 +57,7 @@ public class Conductur : MonoBehaviour
                     {
                         if (selectedTraveler != objectHit.transform.parent.parent.GetComponent<Traveler>())
                         {
-                            NoTravelerSelected();
+                            //NoTravelerSelected();
                         }
                     } else
                     {

@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Traveler : MonoBehaviour
 {
-    Appearance appearance;
+    [SerializeField]
+    private Appearance appearance;
     private bool ticketIsValid = true;
 
     private bool fined = false;
@@ -21,7 +22,7 @@ public class Traveler : MonoBehaviour
 
     [Header("Appearance info")]
     [SerializeField]
-    private Material mat;
+    private MeshRenderer meshRenderer;
     
     [Header("UI sprites")]
     [SerializeField]
@@ -47,9 +48,9 @@ public class Traveler : MonoBehaviour
 
         audioS = GetComponent<AudioSource>();
 
-        appearance = new Appearance();
-        appearance.Randomnize();
-        ApplyAppearance();
+        //appearance = new Appearance();
+        //appearance.Randomnize();
+        //ApplyAppearance();
     }
 
     public void ShowMenu()
@@ -68,13 +69,23 @@ public class Traveler : MonoBehaviour
         switch (appearance.clothes)
         {
             case Clothes.black:
-
+                meshRenderer.material.color = new Color(0, 0, 0);
                 break;
             case Clothes.blue:
-
+                meshRenderer.material.color = new Color(0, 0, 1);
                 break;
             case Clothes.red:
-
+                meshRenderer.material.color = new Color(1, 0, 0);
+                break;
+            case Clothes.green:
+                Debug.Log("Green");
+                meshRenderer.material.color = new Color(0, 1, 0);
+                break;
+            case Clothes.yellow:
+                meshRenderer.material.color = new Color(0, 1, 1);
+                break;
+            default:
+                meshRenderer.material.color = new Color(0, 0, 0);
                 break;
         }
     }
@@ -90,6 +101,14 @@ public class Traveler : MonoBehaviour
         statusImage.sprite = ticketIsValid ? correct : incorrect;
     }
 
+    public Appearance Appearance
+    {
+        get { return appearance; }
+        set {
+            appearance = value;
+            ApplyAppearance();
+        }
+    }
     public void RecieveFine()
     {
         if (fined) { return; }
@@ -155,7 +174,7 @@ public class Appearance {
         //hairColor = GetRandomEnum<HairColor>();
         //hairStyle = GetRandomEnum<HairStyle>();
     }
-    static T GetRandomEnum<T>()
+    public static T GetRandomEnum<T>()
     {
         System.Array A = System.Enum.GetValues(typeof(T));
         T V = (T)A.GetValue(UnityEngine.Random.Range(0, A.Length));
@@ -168,7 +187,9 @@ public enum Clothes
 {
     red,
     black,
-    blue
+    blue,
+    yellow,
+    green,
 }
 public enum HairColor
 {

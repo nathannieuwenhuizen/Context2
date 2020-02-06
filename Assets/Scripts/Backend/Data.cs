@@ -14,6 +14,7 @@ public static class Data
     public static int day = 1;
 
 
+    public static Clothes patternIndex = Appearance.GetRandomEnum<Clothes>();
     //dialogues
     public static List<string> greetingDialogues = new List<string>
     {
@@ -36,6 +37,7 @@ public static class Data
         "Let me tell you about my neighbour, she was feeling so ill. She took one of those health pills and everything is good! It is amazing! ",
         "Good afternoon, don’t you just love life?",
         "My cat died yesterday… Luckily I can ask Generate Your Beast to generate exactly the same cat as I had! What a time to be alive eh. ",
+        "We live in a society"
     };
 
     public static string GetRandomFromList(List<string> list)

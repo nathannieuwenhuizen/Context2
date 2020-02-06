@@ -11,7 +11,7 @@ public class End : MonoBehaviour
 
     public void Start()
     {
-        HideExitButton();
+        //HideExitButton();
         exitButton.GetComponent<Button>().onClick.AddListener(GameManager.instance.End);
     }
     public void ShowExitButton()
