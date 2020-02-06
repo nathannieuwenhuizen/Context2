@@ -34,9 +34,21 @@ public class Traveler : MonoBehaviour
     [SerializeField]
     private GameObject statusObject;
     [SerializeField]
+    private GameObject dialogueObject;
+    [SerializeField]
     private Text dialogueText;
     [SerializeField]
     private float dialogueDuration = 0.5f;
+    [SerializeField]
+    private Image checkingTimer;
+    [SerializeField]
+    private float checkingSpeed = 1f;
+    [SerializeField]
+    private GameObject checkButton;
+    [SerializeField]
+    private Text fineButton;
+    [SerializeField]
+    private GameObject fineMessage;
 
     private bool menuIsShown;
 
@@ -45,17 +57,16 @@ public class Traveler : MonoBehaviour
     {
         HideMenu();
         statusObject.SetActive(false);
+        fineMessage.SetActive(false);
+        dialogueObject.SetActive(false);
+        checkingTimer.gameObject.SetActive(false);
 
         audioS = GetComponent<AudioSource>();
-
-        //appearance = new Appearance();
-        //appearance.Randomnize();
-        //ApplyAppearance();
     }
 
     public void ShowMenu()
     {
-        Talk(Data.GetRandomFromList(Data.greetingDialogues));
+        //Talk(Data.GetRandomFromList(Data.greetingDialogues));
         optionMenu.SetActive(true);
         menuIsShown = true;
     }
@@ -92,10 +103,27 @@ public class Traveler : MonoBehaviour
     public void CheckTicket()
     {
         if (ticketChecked) { return; }
-
+        ticketChecked = true;
+        
         audioS.Play();
         Talk(Data.GetRandomFromList(Data.checkedDialogue));
-        ticketChecked = true;
+
+        checkButton.SetActive(false);
+        StartCoroutine(CheckingTicket());
+    }
+    IEnumerator CheckingTicket()
+    {
+        checkingTimer.gameObject.SetActive(true);
+        float value = 0;
+
+        while (value < 0.99f)
+        {
+            value += Time.deltaTime * checkingSpeed;
+            checkingTimer.fillAmount = value;
+            yield return new WaitForFixedUpdate();
+        }
+
+        checkingTimer.gameObject.SetActive(false);
         statusObject.SetActive(true);
         statusImage.sprite = ticketIsValid ? correct : incorrect;
     }
@@ -110,12 +138,20 @@ public class Traveler : MonoBehaviour
     }
     public void RecieveFine()
     {
-        if (fined) { return; }
+        fined = !fined;
+        fineButton.text = fined ? "Cancel Fine" : "Give Fine";
+        fineMessage.SetActive(fined);
 
 
-        fined = true;
-        Conductur.instance.GiveFine(this);
-        HideMenu();
+        if (fined)
+        {
+            Conductur.instance.GiveFine(this);
+        }
+        else
+        {
+            Conductur.instance.RetakeFine(this);
+        }
+        //HideMenu();
     }
     public bool TicketIsValid
     {
@@ -167,6 +203,7 @@ public class Traveler : MonoBehaviour
 
     public void Talk(string line)
     {
+        dialogueObject.SetActive(true);
         dialogueText.text = "";
         StartCoroutine(Talking(line));
     }

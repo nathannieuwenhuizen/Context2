@@ -74,6 +74,7 @@ public class Conductur : MonoBehaviour
         }
 
     }
+
     private void NoTravelerSelected()
     {
         if (selectedTraveler != null)
@@ -94,9 +95,14 @@ public class Conductur : MonoBehaviour
             selectedTraveler = value;
         }
     }
-    public void GiveFine(Traveler appearance)
+    public void GiveFine(Traveler traveler)
     {
-        finedTravelers.Add(appearance);
+        finedTravelers.Add(traveler);
+    }
+
+    public void RetakeFine(Traveler traveler)
+    {
+        finedTravelers.Remove(traveler);
     }
 
     private void OnTriggerEnter(Collider other)
