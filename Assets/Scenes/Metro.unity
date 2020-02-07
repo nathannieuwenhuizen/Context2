@@ -159,17 +159,17 @@ MonoBehaviour:
   gateInterval: 3
   endTriggerprefab: {fileID: 7179509971309871362, guid: 6423aee5adeb15243a26e15d282dd757,
     type: 3}
-  pieceCount: 8
+  pieceCount: 5
   gatePieceSitpointsPrefab: {fileID: 4274652830332636371, guid: c3863007f4ced184bb3629d6bae9c759,
     type: 3}
   pieceSitpointsPrefab: {fileID: 5161902960098026605, guid: fed6da753a9069f4c87c01a8f3ec2612,
     type: 3}
-  amountOfTravelers: 31
+  amountOfTravelers: 18
   travelerPrefab: {fileID: 6794346089465916705, guid: b74b9c4e72645d845a3233a7b407cd03,
     type: 3}
   travelers: []
   randomPattern: 1
-  precentageCorrect: 50
+  precentageCorrect: 65
   amountPatternTravelers: 7
 --- !u!4 &153534144
 Transform:
