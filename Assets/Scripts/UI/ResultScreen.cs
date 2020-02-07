@@ -58,7 +58,7 @@ public class ResultScreen : MonoBehaviour
             continueButton.SetActive(false);
             endNote.gameObject.SetActive(true);
             endNoteBackground.gameObject.SetActive(true);
-            if (Data.amountIlligalMissed > 0)
+            if (Data.amountWronglyFined > 0)
             {
                 endNote.GetComponent<AudioSource>().clip = failClip;
                 endNote.text = "IMPORTANT! \n" +
