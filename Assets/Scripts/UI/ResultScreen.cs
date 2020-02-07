@@ -18,6 +18,7 @@ public class ResultScreen : MonoBehaviour
     [SerializeField] private Text timePointsText;
     [SerializeField] private Text timeFormattedText;
     [SerializeField] private Text playerScoreText;
+    [SerializeField] private Text playerRankText;
 
     [Header("Score tweak")]
     [SerializeField] float verkeerdGeskiptGewicht = -1;
@@ -83,6 +84,8 @@ public class ResultScreen : MonoBehaviour
         var timePoints = Mathf.Floor(tijdGewicht / Data.timePassed * scoreMultiplier);
         var totalScore = corrFinedPoints + wronFinedPoints + wronSkippedPoints + timePoints;
 
+        var playerRank = Mathf.RoundToInt(Remap(totalScore, -20000, highScoreFirst, 1, 964));
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -113,11 +116,26 @@ public class ResultScreen : MonoBehaviour
         timePointsText.text = timePoints.ToString();
         timeFormattedText.text = timeTaken;
         playerScoreText.text = totalScore.ToString();
-
+        playerRankText.text = playerRank.ToString();
     }
 
     void Update()
     {
         
+    }
+
+    private float Remap(float from, float fromMin, float fromMax, float toMin,  float toMax)
+    {
+        var fromAbs  =  from - fromMin;
+        var fromMaxAbs = fromMax - fromMin;      
+       
+        var normal = fromAbs / fromMaxAbs;
+ 
+        var toMaxAbs = toMax - toMin;
+        var toAbs = toMaxAbs * normal;
+ 
+        var to = toAbs + toMin;
+       
+        return to;
     }
 }
