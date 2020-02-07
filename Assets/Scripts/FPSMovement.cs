@@ -42,7 +42,7 @@ public class FPSMovement : MonoBehaviour
 
 
 
-    void Update()
+    void FixedUpdate()
     {
         Move();
         Rotate();
