@@ -16,6 +16,7 @@ public class EscToQuit : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
+            Debug.Log("Game quit!");
         }
     }
 
