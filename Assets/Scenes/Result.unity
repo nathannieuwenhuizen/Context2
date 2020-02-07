@@ -3072,7 +3072,7 @@ MonoBehaviour:
   verkeerdGeskiptGewicht: -5
   correctBeboetGewicht: 1
   verkeerBeboetGewicht: -5
-  tijdGewicht: 100
+  tijdGewicht: 160
   scoreMultiplier: 1000
   highScoreFirst: 12308
   quitButton: {fileID: 1650101082}
