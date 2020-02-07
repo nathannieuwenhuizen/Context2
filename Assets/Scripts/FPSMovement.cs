@@ -14,10 +14,13 @@ public class FPSMovement : MonoBehaviour
     private Transform cameraTransform;
     private Vector3 direction;
 
+    private Rigidbody rb;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        rb = GetComponent<Rigidbody>();
     }
     private Vector2 getMouseDelta()
     {
@@ -37,6 +40,9 @@ public class FPSMovement : MonoBehaviour
             0,
             Input.GetAxis("Vertical")
         );
+        //direction = (transform.right * direction.x + transform.forward * direction.y).normalized;
+        //direction.y = 0;
+        //rb.MovePosition(transform.position + direction * walkSpeed);
         transform.Translate(direction * walkSpeed);
     }
 

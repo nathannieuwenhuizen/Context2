@@ -6,6 +6,12 @@ using UnityEngine.UI;
 public class ResultScreen : MonoBehaviour
 {
 
+    [Header("Audio")]
+    [SerializeField]
+    private AudioClip succesClip;
+    [SerializeField]
+    private AudioClip failClip;
+
     [Header("UI data text")]
     [SerializeField] private Text dataText;
     [SerializeField] private Text corrFinedText;
@@ -54,15 +60,18 @@ public class ResultScreen : MonoBehaviour
             endNoteBackground.gameObject.SetActive(true);
             if (Data.amountIlligalMissed > 0)
             {
+                endNote.GetComponent<AudioSource>().clip = failClip;
                 endNote.text = "IMPORTANT! \n" +
                     "Your performance has been measured and you have incorrectly fined passengers with valid tickets based on prejudice! You have been FIRED because of discrimination!";
             } else
             {
+                endNote.GetComponent<AudioSource>().clip = succesClip;
                 endNote.text = "IMPORTANT! \n" +
                     "The inspector has measured your performance and you are found popular and exact! You're PROMOTED!";
-
             }
-        } else
+            endNote.GetComponent<AudioSource>().Play();
+        }
+        else
         {
             quitButton.SetActive(false);
             endNote.gameObject.SetActive(false);
