@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour
     {
         Data.finalLevel = false;
         Data.patternIndex = Appearance.GetRandomEnum<Clothes>();
+        Data.day = 1;
     }
 
     // Update is called once per frame
