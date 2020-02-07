@@ -93,7 +93,7 @@ public class ResultScreen : MonoBehaviour
         var timePoints = Mathf.Floor(tijdGewicht / Data.timePassed * scoreMultiplier);
         var totalScore = corrFinedPoints + wronFinedPoints + wronSkippedPoints + timePoints;
 
-        var playerRank = Mathf.RoundToInt(Remap(totalScore, -20000, highScoreFirst, 1, 964));
+        var playerRank = (totalScore > highScoreFirst ? 1 : Mathf.RoundToInt(Remap(totalScore, -20000, highScoreFirst, 964, 2)));
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
