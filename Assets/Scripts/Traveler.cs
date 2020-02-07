@@ -23,7 +23,17 @@ public class Traveler : MonoBehaviour
     [Header("Appearance info")]
     [SerializeField]
     private SkinnedMeshRenderer[] meshRenderers;
-    
+
+    [Header("Audio")]
+    [SerializeField]
+    private AudioClip correctClip;
+    [SerializeField]
+    private AudioClip incorrectClip;
+    [SerializeField]
+    private AudioClip giveFineClip;
+    [SerializeField]
+    private AudioClip checkingTicketClip;
+
     [Header("UI sprites")]
     [SerializeField]
     private Sprite correct;
@@ -105,7 +115,9 @@ public class Traveler : MonoBehaviour
     {
         if (ticketChecked) { return; }
         ticketChecked = true;
-        
+
+        audioS.clip = checkingTicketClip;
+        audioS.volume = 1f;
         audioS.Play();
         Talk(Data.GetRandomFromList(Data.checkedDialogue));
 
@@ -127,6 +139,8 @@ public class Traveler : MonoBehaviour
         checkingTimer.gameObject.SetActive(false);
         statusObject.SetActive(true);
         statusImage.sprite = ticketIsValid ? correct : incorrect;
+        statusImage.GetComponent<AudioSource>().clip = ticketIsValid ? correctClip : incorrectClip;
+        statusImage.GetComponent<AudioSource>().Play();
     }
 
     public Appearance Appearance
@@ -142,7 +156,12 @@ public class Traveler : MonoBehaviour
         fined = !fined;
         fineButton.text = fined ? "Cancel Fine" : "Give Fine";
         fineMessage.SetActive(fined);
-
+        if (fined)
+        {
+            audioS.clip = giveFineClip;
+            audioS.volume = .3f;
+            audioS.Play();
+        }
 
         if (fined)
         {
