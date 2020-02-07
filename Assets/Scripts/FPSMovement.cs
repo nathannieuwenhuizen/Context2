@@ -46,11 +46,13 @@ public class FPSMovement : MonoBehaviour
         transform.Translate(direction * walkSpeed);
     }
 
-
+    private void Update()
+    {
+        Rotate();
+    }
 
     void FixedUpdate()
     {
         Move();
-        Rotate();
     }
 }

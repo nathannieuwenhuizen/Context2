@@ -449,6 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moving: 0
   speed: 2
+  maxDist: 200
 --- !u!114 &7173698236322359320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,3 +643,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moving: 0
   speed: 2
+  maxDist: 200
