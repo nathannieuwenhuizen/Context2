@@ -25,8 +25,8 @@ public class FPSMovement : MonoBehaviour
     }
     private void Rotate()
     {
-        transform.Rotate(new Vector3(0, getMouseDelta().x * rotateSpeed, 0));
-        cameraTransform.Rotate(new Vector3(-getMouseDelta().y * rotateSpeed, 0, 0));
+        transform.Rotate(new Vector3(0, getMouseDelta().x * rotateSpeed * Time.deltaTime, 0));
+        cameraTransform.Rotate(new Vector3(-getMouseDelta().y * rotateSpeed * Time.deltaTime, 0, 0));
 
     }
 
@@ -40,11 +40,14 @@ public class FPSMovement : MonoBehaviour
         transform.Translate(direction * walkSpeed);
     }
 
-
+    private void Update()
+    {
+        
+    }
 
     void FixedUpdate()
     {
-        Move();
         Rotate();
+        Move();
     }
 }

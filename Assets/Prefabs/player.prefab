@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 0.1
-  rotateSpeed: 2
+  rotateSpeed: 120
   cameraTransform: {fileID: 8884470863987962238}
 --- !u!82 &5180121510251025790
 AudioSource:
@@ -449,6 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moving: 0
   speed: 2
+  maxDist: 200
 --- !u!114 &7173698236322359320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,3 +643,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moving: 0
   speed: 2
+  maxDist: 200
